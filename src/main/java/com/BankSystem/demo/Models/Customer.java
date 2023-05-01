@@ -8,10 +8,50 @@ import javax.persistence.Id;
 @Entity
 public class Customer {
     String CustomerName;
-    Integer CustomerId;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer CustomerId;
     Integer CustomerPhoneNumber;
+    Integer age;
+    String Email;
 
+    public String getCustomerName() {
+        return CustomerName;
+    }
 
+    public void setCustomerName(String customerName) {
+        CustomerName = customerName;
+    }
+
+    public Integer getCustomerId() {
+        return CustomerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        CustomerId = customerId;
+    }
+
+    public Integer getCustomerPhoneNumber() {
+        return CustomerPhoneNumber;
+    }
+
+    public void setCustomerPhoneNumber(Integer customerPhoneNumber) {
+        CustomerPhoneNumber = customerPhoneNumber;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
 }

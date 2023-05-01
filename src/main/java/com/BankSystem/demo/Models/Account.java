@@ -13,5 +13,27 @@ public class Account {
     String AccountName;
     Integer AccountNumber;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAccountName() {
+        return AccountName;
+    }
+
+    public void setAccountName(String accountName) {
+        AccountName = accountName;
+    }
+
+    public Integer getAccountNumber() {
+        return AccountNumber;
+    }
+
+    public void setAccountNumber(Integer accountNumber) {
+        AccountNumber = accountNumber;
+    }
 }

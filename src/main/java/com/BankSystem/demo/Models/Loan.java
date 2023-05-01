@@ -13,5 +13,27 @@ public class Loan {
     Integer Amount;
     Integer InterestRate;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(Integer amount) {
+        Amount = amount;
+    }
+
+    public Integer getInterestRate() {
+        return InterestRate;
+    }
+
+    public void setInterestRate(Integer interestRate) {
+        InterestRate = interestRate;
+    }
 }

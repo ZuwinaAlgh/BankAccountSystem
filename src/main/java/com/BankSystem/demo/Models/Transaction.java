@@ -12,4 +12,28 @@ public class Transaction {
     Integer id;
     Integer Amount;
     Data date;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAmount() {
+        return Amount;
+    }
+
+    public void setAmount(Integer amount) {
+        Amount = amount;
+    }
+
+    public Data getDate() {
+        return date;
+    }
+
+    public void setDate(Data date) {
+        this.date = date;
+    }
 }
