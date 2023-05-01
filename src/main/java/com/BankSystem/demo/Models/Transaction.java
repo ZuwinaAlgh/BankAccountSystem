@@ -10,6 +10,7 @@ public class Transaction {
     Integer Amount;
     Data date;
     @ManyToOne
+    @JoinColumn(name="account-id", referencedColumnName = "id")
     Account account;
 
     public Integer getId() {

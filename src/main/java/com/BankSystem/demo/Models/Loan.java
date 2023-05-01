@@ -10,6 +10,7 @@ public class Loan {
     Integer Amount;
     Integer InterestRate;
     @ManyToOne
+    @JoinColumn(name="customer-id", referencedColumnName = "id")
     Customer customer;
 
     public Integer getId() {

@@ -11,7 +11,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer CustomerId;
-    Integer CustomerPhoneNumber;
+    String CustomerPhoneNumber;
     Integer age;
     String Email;
 
@@ -31,11 +31,11 @@ public class Customer {
         CustomerId = customerId;
     }
 
-    public Integer getCustomerPhoneNumber() {
+    public String getCustomerPhoneNumber() {
         return CustomerPhoneNumber;
     }
 
-    public void setCustomerPhoneNumber(Integer customerPhoneNumber) {
+    public void setCustomerPhoneNumber(String customerPhoneNumber) {
         CustomerPhoneNumber = customerPhoneNumber;
     }
 
