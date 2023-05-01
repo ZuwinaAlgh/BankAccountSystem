@@ -1,9 +1,6 @@
 package com.BankSystem.demo.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Loan {
@@ -12,6 +9,8 @@ public class Loan {
     Integer id;
     Integer Amount;
     Integer InterestRate;
+    @ManyToOne
+    Customer customer;
 
     public Integer getId() {
         return id;

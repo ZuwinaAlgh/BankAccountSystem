@@ -1,9 +1,6 @@
 package com.BankSystem.demo.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class CreditCard {
@@ -13,6 +10,8 @@ public class CreditCard {
     String Name;
     Integer CreditCardNumber;
     Integer OTP;
+    @ManyToOne
+    Customer customer;
 
     public Integer getId() {
         return id;

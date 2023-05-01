@@ -1,9 +1,6 @@
 package com.BankSystem.demo.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.crypto.Data;
 @Entity
 public class Transaction {
@@ -12,6 +9,8 @@ public class Transaction {
     Integer id;
     Integer Amount;
     Data date;
+    @ManyToOne
+    Account account;
 
     public Integer getId() {
         return id;
