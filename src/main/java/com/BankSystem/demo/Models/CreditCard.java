@@ -11,7 +11,7 @@ public class CreditCard {
     Integer CreditCardNumber;
     Integer OTP;
     @ManyToOne
-    @JoinColumn(name="customer-id", referencedColumnName = "id")
+    @JoinColumn(name="Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
 
     public Integer getId() {

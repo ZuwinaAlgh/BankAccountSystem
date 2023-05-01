@@ -7,10 +7,10 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    Integer Amount;
+    Double Amount;
     Integer InterestRate;
     @ManyToOne
-    @JoinColumn(name="customer-id", referencedColumnName = "id")
+    @JoinColumn(name="Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
 
     public Integer getId() {
@@ -21,11 +21,11 @@ public class Loan {
         this.id = id;
     }
 
-    public Integer getAmount() {
+    public Double getAmount() {
         return Amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         Amount = amount;
     }
 

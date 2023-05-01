@@ -1,12 +1,10 @@
 package com.BankSystem.demo.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Customer {
+    @Column(name="Customer_name")
     String CustomerName;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

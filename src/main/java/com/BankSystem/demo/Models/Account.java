@@ -10,7 +10,7 @@ public class Account {
     String AccountName;
     Integer AccountNumber;
     @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JoinColumn(name = "Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
 
     public Integer getId() {
