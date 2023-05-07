@@ -13,6 +13,14 @@ public class Loan extends BaseEntity{
     @JoinColumn(name="Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public Integer getId() {
         return id;
     }
