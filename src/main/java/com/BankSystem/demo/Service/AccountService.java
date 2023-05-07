@@ -28,4 +28,15 @@ public class AccountService {
         account.setCustomer(customerRepository.getCustomerById(CustomerId));
         accountRepository.save(account);
     }
+
+    public void createNewAccount(String AccountName, Integer CustomerId){                      //create New Account
+        Account account=new Account();
+        account.setAccountName(AccountName);
+        account.setAccountNumber(926518746);
+        account.setCreatedDate(new Date());
+        account.setUpdatedDate(new Date());
+        account.setActive(Boolean.TRUE);
+        account.setCustomer(customerRepository.getCustomerById(CustomerId));
+        accountRepository.save(account);
+    }
 }
