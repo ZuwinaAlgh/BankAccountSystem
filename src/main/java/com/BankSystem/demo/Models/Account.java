@@ -10,6 +10,16 @@ public class Account extends BaseEntity{
     String AccountName;
    Integer AccountNumber;
 
+   Double Balance;
+
+    public Double getBalance() {
+        return Balance;
+    }
+
+    public void setBalance(Double balance) {
+        Balance = balance;
+    }
+
     public Customer getCustomer() {
         return customer;
     }

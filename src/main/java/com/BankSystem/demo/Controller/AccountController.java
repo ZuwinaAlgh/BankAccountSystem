@@ -21,6 +21,13 @@ public class AccountController {
         accountService.createAccount(AccountName,CustomerId);
     }
 
+    @RequestMapping(value = "getBalance", method = RequestMethod.GET)
+    public Double getBalance(@RequestParam  Integer id){
+        Double account=accountService.getBalance(id);
+        return account;
+
+    }
+
 
 
 }

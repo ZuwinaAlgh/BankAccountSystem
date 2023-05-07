@@ -39,4 +39,9 @@ public class AccountService {
         account.setCustomer(customerRepository.getCustomerById(CustomerId));
         accountRepository.save(account);
     }
+
+    public Double getBalance(Integer id){
+        Double account=accountRepository.getBalance(id);
+        return account;
+    }
 }
