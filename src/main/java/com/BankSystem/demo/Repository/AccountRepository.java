@@ -10,5 +10,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
+    @Query(value = "SELECT m FROM Account m where m.id= :id")
+    Account getAccountById(@Param("id") Integer id);
+
 
 }

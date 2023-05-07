@@ -19,12 +19,12 @@ public class LoanService {
 
     public void createLoan(){                      //create Loan
         Loan loan=new Loan();
-        loan.setAmount(100.200);
-        loan.setInterestRate(10);
+        loan.setAmount(300.50);
+        loan.setInterestRate(14);
         loan.setCreatedDate(new Date());
         loan.setUpdatedDate(new Date());
         loan.setActive(Boolean.TRUE);
-        loan.setCustomer(customerRepository.getCustomerById(5));
+        loan.setCustomer(customerRepository.getCustomerById(8));
         loanRepository.save(loan);
     }
 }

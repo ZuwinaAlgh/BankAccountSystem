@@ -17,7 +17,7 @@ public class CreditCardService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public void createCreditCard(String Name, Integer CustomerId){                      //create account
+    public void createCreditCard(String Name, Integer CustomerId){                      //create creditCard
         CreditCard creditCard=new CreditCard();
         creditCard.setName(Name);
         creditCard.setCreditCardNumber(4);

@@ -11,10 +11,18 @@ public class Transaction extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)    // to genarate primary key
     Integer id;
     Integer Amount;
-    Date date;
+
     @ManyToOne
     @JoinColumn(name="account_id", referencedColumnName = "id")
     Account account;
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 
     public Integer getId() {
         return id;
@@ -32,11 +40,4 @@ public class Transaction extends BaseEntity{
         Amount = amount;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }
