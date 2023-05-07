@@ -3,12 +3,21 @@ package com.BankSystem.demo.Models;
 import javax.persistence.*;
 
 @Entity
-public class Account {
+public class Account extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String AccountName;
-    Integer AccountNumber;
+   Integer AccountNumber;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     @ManyToOne
     @JoinColumn(name = "Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;

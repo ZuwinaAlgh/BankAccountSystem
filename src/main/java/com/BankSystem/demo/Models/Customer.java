@@ -3,7 +3,7 @@ package com.BankSystem.demo.Models;
 import javax.persistence.*;
 
 @Entity
-public class Customer {
+public class Customer extends BaseEntity{
     @Column(name="Customer_name")
     String CustomerName;
     @Id

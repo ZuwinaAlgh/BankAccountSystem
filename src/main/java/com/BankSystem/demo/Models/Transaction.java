@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="Account_Transaction")
-public class Transaction {
+public class Transaction extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)    // to genarate primary key
     Integer id;

@@ -3,7 +3,7 @@ package com.BankSystem.demo.Models;
 import javax.persistence.*;
 
 @Entity
-public class CreditCard {
+public class CreditCard extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
