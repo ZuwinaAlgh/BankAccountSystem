@@ -7,20 +7,25 @@ import com.BankSystem.demo.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class AccountService {
     @Autowired
     AccountRepository accountRepository;
+    @Autowired
     CustomerRepository customerRepository;
 
 
 
-    public void createAccount(String AccountName, Integer AccountNumber){                      //create account
+    public void createAccount(String AccountName, Integer CustomerId){                      //create account
         Account account=new Account();
         account.setAccountName(AccountName);
-        account.setAccountNumber(AccountNumber);
-        Customer customer = customerRepository.getCustomerById(account.getCustomer().getCustomerId());
-        account.setCustomer(customer);
+        account.setAccountNumber(619835479);
+        account.setCreatedDate(new Date());
+        account.setUpdatedDate(new Date());
+        account.setActive(Boolean.FALSE);
+        account.setCustomer(customerRepository.getCustomerById(CustomerId));
         accountRepository.save(account);
     }
 }

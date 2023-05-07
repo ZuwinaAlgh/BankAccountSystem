@@ -11,7 +11,10 @@ public class AccountController {
     @Autowired
     AccountService accountService;
 
-//    @RequestMapping(value="createAccount", method = RequestMethod.POST)
-//    public void createAccount(@RequestBody Account account ){accountService.createAccount(account);
-//    }
+    @RequestMapping(value="createAccount", method = RequestMethod.POST)
+    public void createAccount(@RequestParam String AccountName, Integer CustomerId ){accountService.createAccount(AccountName,CustomerId);
+    }
+
+
+
 }

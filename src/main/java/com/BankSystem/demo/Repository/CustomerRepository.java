@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query(value = "SELECT m FROM Customer m where m.id= :customerId")
-    Customer getCustomerById(@Param("customerId") Integer id);
+    Customer getCustomerById(@Param("customerId") Integer CustomerId);
 
 }
