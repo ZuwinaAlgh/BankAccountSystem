@@ -2,15 +2,19 @@ package com.BankSystem.demo.Controller;
 
 import com.BankSystem.demo.Models.Account;
 import com.BankSystem.demo.Service.AccountService;
+import com.BankSystem.demo.Service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value="account")
 public class AccountController {
     @Autowired
     AccountService accountService;
-
+    @Autowired
+    TransactionService transactionService;
     @RequestMapping(value="createAccount", method = RequestMethod.POST)
     public void createAccount(@RequestParam String AccountName, Integer CustomerId ){accountService.createAccount(AccountName,CustomerId);
     }
@@ -27,6 +31,19 @@ public class AccountController {
         return account;
 
     }
+
+    @RequestMapping(value = "getAll",method = RequestMethod.GET)                                 //get All Account
+    public List<Account> getAllAccounts(){
+        List<Account> accounts= accountService.getAllAccounts();
+        return accounts;
+    }
+
+    @RequestMapping(value = "getInterestAmount", method = RequestMethod.GET)
+    public void calculateInterest(@RequestParam Integer id){
+       accountService.getCalculateInterest(id);
+    }
+
+
 
 
 

@@ -4,10 +4,12 @@ import com.BankSystem.demo.Models.Account;
 import com.BankSystem.demo.Models.Customer;
 import com.BankSystem.demo.Repository.AccountRepository;
 import com.BankSystem.demo.Repository.CustomerRepository;
+import com.BankSystem.demo.Repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class AccountService {
@@ -15,6 +17,8 @@ public class AccountService {
     AccountRepository accountRepository;
     @Autowired
     CustomerRepository customerRepository;
+    @Autowired
+    TransactionRepository transactionRepository;
 
 
 
@@ -40,8 +44,24 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    public Double getBalance(Integer id){
+    public Double getBalance(Integer id){                                             //Retrieve Account Balance
         Double account=accountRepository.getBalance(id);
         return account;
     }
-}
+
+    public List<Account> getAllAccounts() {                                             //get all Account
+        return accountRepository.getAllAccount();
+
+    }
+
+    public void getCalculateInterest(Integer id) {
+        List<Account> accountList = accountRepository.getAllAccount();
+        for (Account account : accountList) {
+            Double Balance = accountRepository.getBalance(id);
+            Double InterestPercent = 0.15;
+            Double InterestAmount = Balance * InterestPercent;
+            account.setInterestAmount(InterestAmount);
+            accountRepository.save(account);
+        }
+    }
+    }

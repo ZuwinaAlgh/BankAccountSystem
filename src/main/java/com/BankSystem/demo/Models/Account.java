@@ -11,6 +11,15 @@ public class Account extends BaseEntity{
    Integer AccountNumber;
 
    Double Balance;
+   Double InterestAmount;
+
+    public Double getInterestAmount() {
+        return InterestAmount;
+    }
+
+    public void setInterestAmount(Double interestAmount) {
+        InterestAmount = interestAmount;
+    }
 
     public Double getBalance() {
         return Balance;
