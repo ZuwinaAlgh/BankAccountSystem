@@ -16,7 +16,8 @@ public class AccountController {
     @Autowired
     TransactionService transactionService;
     @RequestMapping(value="createAccount", method = RequestMethod.POST)
-    public void createAccount(@RequestParam String AccountName, Integer CustomerId ){accountService.createAccount(AccountName,CustomerId);
+    public void createAccount(@RequestParam String AccountName, Integer CustomerId )
+    {accountService.createAccount(AccountName,CustomerId);
     }
 
     //create new Account
@@ -38,7 +39,7 @@ public class AccountController {
         return accounts;
     }
 
-    @RequestMapping(value = "getInterestAmount", method = RequestMethod.GET)
+    @RequestMapping(value = "getInterestAmount", method = RequestMethod.GET)                            //Calculate the interest on the account balance
     public void calculateInterest(@RequestParam Integer id){
        accountService.getCalculateInterest(id);
     }

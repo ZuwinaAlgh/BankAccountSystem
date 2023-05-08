@@ -22,7 +22,7 @@ public class AccountService {
 
 
 
-    public void createAccount(String AccountName, Integer CustomerId){                      //create account
+    public void createAccount(String AccountName, Integer CustomerId){                      //add customer
         Account account=new Account();
         account.setAccountName(AccountName);
         account.setAccountNumber(619835479);
@@ -54,14 +54,15 @@ public class AccountService {
 
     }
 
-    public void getCalculateInterest(Integer id) {
-        List<Account> accountList = accountRepository.getAllAccount();
-        for (Account account : accountList) {
-            Double Balance = accountRepository.getBalance(id);
+    public void getCalculateInterest(Integer id) {                                     //Calculate the interest on the account balance
+//        List<Account> accountList = accountRepository.getAllAccount();
+            Account account=accountRepository.getAccountById(id);
+            Double Balance = account.getBalance();
             Double InterestPercent = 0.15;
+            account.setInterestAmount(InterestPercent);
             Double InterestAmount = Balance * InterestPercent;
-            account.setInterestAmount(InterestAmount);
+            account.setBalance(Balance+InterestAmount);
             accountRepository.save(account);
-        }
+
     }
     }
