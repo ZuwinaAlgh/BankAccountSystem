@@ -12,6 +12,9 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
+    @Query(value="SELECT s from Account s")                //get all Account
+    List<Account> getAllAccounts();
+
     @Query(value = "SELECT m FROM Account m where m.id= :id")
     Account getAccountById(@Param("id") Integer id);
 

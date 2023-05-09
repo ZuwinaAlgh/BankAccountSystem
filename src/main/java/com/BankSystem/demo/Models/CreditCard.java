@@ -13,6 +13,9 @@ public class CreditCard extends BaseEntity{
     @ManyToOne
     @JoinColumn(name="Customer_Id", referencedColumnName = "CustomerId")
     Customer customer;
+    @OneToOne
+    @JoinColumn(name="id", referencedColumnName = "id")
+    Account account;
 
     public Customer getCustomer() {
         return customer;

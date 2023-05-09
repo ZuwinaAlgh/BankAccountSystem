@@ -15,6 +15,12 @@ public class AccountController {
     AccountService accountService;
     @Autowired
     TransactionService transactionService;
+
+    @RequestMapping(value = "getAll",method = RequestMethod.GET)                 //get All Account
+    public List<Account> getAllAccount(){
+        List<Account> accounts= accountService.getAllAccounts();
+        return accounts;
+    }
     @RequestMapping(value="createAccount", method = RequestMethod.POST)
     public void createAccount(@RequestParam String AccountName, Integer CustomerId )
     {accountService.createAccount(AccountName,CustomerId);
@@ -33,7 +39,7 @@ public class AccountController {
 
     }
 
-    @RequestMapping(value = "getAll",method = RequestMethod.GET)                                 //get All Account
+    @RequestMapping(value = "getAllAccount",method = RequestMethod.GET)                                 //get All Account
     public List<Account> getAllAccounts(){
         List<Account> accounts= accountService.getAllAccounts();
         return accounts;

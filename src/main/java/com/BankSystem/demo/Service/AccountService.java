@@ -20,6 +20,10 @@ public class AccountService {
     @Autowired
     TransactionRepository transactionRepository;
 
+    public List<Account> getAllAccount() {
+        return accountRepository.getAllAccounts();
+    }
+
 
 
     public void createAccount(String AccountName, Integer CustomerId){                      //add customer
@@ -55,7 +59,6 @@ public class AccountService {
     }
 
     public void getCalculateInterest(Integer id) {                                     //Calculate the interest on the account balance
-//        List<Account> accountList = accountRepository.getAllAccount();
             Account account=accountRepository.getAccountById(id);
             Double Balance = account.getBalance();
             Double InterestPercent = 0.15;

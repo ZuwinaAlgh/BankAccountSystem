@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.NavigableMap;
 
 @Service
@@ -16,6 +17,11 @@ public class CreditCardService {
     CreditCardRepository creditCardRepository;
     @Autowired
     CustomerRepository customerRepository;
+
+    public List<CreditCard> getAllCreditCards() {                                             //get all Account
+        return creditCardRepository.getAllCreditCard();
+
+    }
 
     public void createCreditCard(String Name, Integer CustomerId){                      //create creditCard
         CreditCard creditCard=new CreditCard();
