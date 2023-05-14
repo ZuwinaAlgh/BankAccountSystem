@@ -2,6 +2,7 @@ package com.BankSystem.demo.Service;
 
 import com.BankSystem.demo.Models.Account;
 import com.BankSystem.demo.Models.Customer;
+import com.BankSystem.demo.Models.Transaction;
 import com.BankSystem.demo.Repository.AccountRepository;
 import com.BankSystem.demo.Repository.CustomerRepository;
 import com.BankSystem.demo.Repository.TransactionRepository;
@@ -25,9 +26,8 @@ public class AccountService {
     }
 
 
-
-    public void createAccount(String AccountName, Integer CustomerId){                      //add customer
-        Account account=new Account();
+    public void createAccount(String AccountName, Integer CustomerId) {                      //add customer
+        Account account = new Account();
         account.setAccountName(AccountName);
         account.setAccountNumber(619835479);
         account.setCreatedDate(new Date());
@@ -37,8 +37,8 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    public void createNewAccount(String AccountName, Integer CustomerId){                      //create New Account
-        Account account=new Account();
+    public void createNewAccount(String AccountName, Integer CustomerId) {                      //create New Account
+        Account account = new Account();
         account.setAccountName(AccountName);
         account.setAccountNumber(926518746);
         account.setCreatedDate(new Date());
@@ -48,8 +48,8 @@ public class AccountService {
         accountRepository.save(account);
     }
 
-    public Double getBalance(Integer id){                                             //Retrieve Account Balance
-        Double account=accountRepository.getBalance(id);
+    public Double getBalance(Integer id) {                                             //Retrieve Account Balance
+        Double account = accountRepository.getBalance(id);
         return account;
     }
 
@@ -59,19 +59,25 @@ public class AccountService {
     }
 
     public void getCalculateInterest(Integer id) {                                     //Calculate the interest on the account balance
-            Account account=accountRepository.getAccountById(id);
-            Double Balance = account.getBalance();
-            Double InterestPercent = 0.15;
-            account.setInterestAmount(InterestPercent);
-            Double InterestAmount = Balance * InterestPercent;
-            account.setBalance(Balance+InterestAmount);
-            accountRepository.save(account);
+        Account account = accountRepository.getAccountById(id);
+        Double Balance = account.getBalance();
+        Double InterestPercent = 0.15;
+        account.setInterestAmount(InterestPercent);
+        Double InterestAmount = Balance * InterestPercent;
+        account.setBalance(Balance + InterestAmount);
+        accountRepository.save(account);
 
     }
 
-//    public void updateAccountBalance(Integer id){
-//        Account account=accountRepository.getAccountById(id);
-//        Double Balance=account.getBalance();
-//        Double amount=account.g
-//    }
+    public void updateAccountBalance(Integer id) {                                  // Update the account balance when a transaction is made.
+        Account account = accountRepository.getAccountById(id);
+        Double Amount=account.getAmount();
+        Double transactionAmount =50.100;
+        account.setTransactionAmount(transactionAmount);
+        Double Amounts= Amount-transactionAmount;
+        account.setAmount(Amounts);
+        accountRepository.save(account);
+
+
     }
+}

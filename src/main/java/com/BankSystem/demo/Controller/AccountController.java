@@ -50,6 +50,11 @@ public class AccountController {
        accountService.getCalculateInterest(id);
     }
 
+    @RequestMapping(value = "updateAccountBalance", method = RequestMethod.GET)                          // Update the account balance when a transaction is made.
+    public void updateAccountBalance(@RequestParam Integer id){
+        accountService.updateAccountBalance(id);
+    }
+
 
 
 
