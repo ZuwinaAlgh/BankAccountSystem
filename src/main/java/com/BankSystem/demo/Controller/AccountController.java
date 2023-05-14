@@ -26,9 +26,9 @@ public class AccountController {
     {accountService.createAccount(AccountName,CustomerId);
     }
 
-    //create new Account
+
     @RequestMapping(value="createNewAccount", method = RequestMethod.POST)
-    public void createNewAccount(@RequestParam String AccountName, Integer CustomerId ){
+    public void createNewAccount(@RequestParam String AccountName, Integer CustomerId ){                          //create new Account
         accountService.createAccount(AccountName,CustomerId);
     }
 

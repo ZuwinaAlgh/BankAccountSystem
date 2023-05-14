@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface CreditCardRepository extends JpaRepository<CreditCard, Integer> {
-    @Query(value="SELECT s from CreditCard s")                //get all Account
+    @Query(value="SELECT s from CreditCard s")                //get all CreditCard
     List<CreditCard> getAllCreditCard();
 }
 

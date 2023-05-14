@@ -68,4 +68,10 @@ public class AccountService {
             accountRepository.save(account);
 
     }
+
+//    public void updateAccountBalance(Integer id){
+//        Account account=accountRepository.getAccountById(id);
+//        Double Balance=account.getBalance();
+//        Double amount=account.g
+//    }
     }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class TransactionService {
@@ -24,5 +25,10 @@ public class TransactionService {
         transaction.setActive(Boolean.TRUE);
         transaction.setAccount(accountRepository.getAccountById(7));
         transactionRepository.save(transaction);
+    }
+
+    public List<Transaction> getAllTransaction(){
+        return transactionRepository.getAllTransaction();
+
     }
 }
