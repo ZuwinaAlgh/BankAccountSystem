@@ -1,5 +1,6 @@
 package com.BankSystem.demo.Service;
 
+import com.BankSystem.demo.DTO.AccountHistoryWithTransactions;
 import com.BankSystem.demo.DTO.AccountStatementGenerater;
 import com.BankSystem.demo.Models.Account;
 import com.BankSystem.demo.Repository.AccountRepository;
@@ -54,5 +55,36 @@ public class ReportService {
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource);
         JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports+"\\AccountReport.pdf");
         return "Report generated : " + pathToReports+"\\AccountReport.pdf";
+    }
+
+
+    public String generateAllAccountWithTransactions() throws FileNotFoundException, JRException {
+        List<Account> accountList=accountRepository.getAllAccounts();
+        List<AccountHistoryWithTransactions> accountHistoryWithTransactionsList=new ArrayList<>();
+        for (Account account: accountList){
+            String customerName=account.getCustomer().getCustomerName();
+            String customerPhoneNumber=account.getCustomer().getCustomerPhoneNumber();
+            Integer age=account.getCustomer().getAge();
+            String email=account.getCustomer().getEmail();
+            String accountName=account.getAccountName();
+            Integer accountNumber=account.getAccountNumber();
+            Double balance=account.getBalance();
+            Double interestAmount=account.getInterestAmount();
+            Double transactionAmount=account.getTransactionAmount();
+            Double amount=account.getAmount();
+            AccountHistoryWithTransactions accountHistoryWithTransactions1=new AccountHistoryWithTransactions();
+            accountHistoryWithTransactionsList.add(accountHistoryWithTransactions1);
+
+
+        }
+
+        File file = new File("C:\\Users\\user011\\IdeaProjects\\demo\\demo\\src\\main\\resources\\AccountStatement.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accountHistoryWithTransactionsList);
+        Map<String, Object> paramters = new HashMap<>();
+        paramters.put("CreatedBy", "ZuwinaALghafri");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,paramters , dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports+"\\AccountWithTransactionReport.pdf");
+        return "Report generated : " + pathToReports+"\\AccountWithTransactionReport.pdf";
     }
 }

@@ -19,4 +19,10 @@ public class ReportController {
     public String generateAccountReport() throws JRException, FileNotFoundException {
         return reportService.generateAccountStatementReport();
     }
+
+    @RequestMapping(value="AccountHistoryWithTransactions")
+    public String generateAccountHistoryWithTransactions() throws JRException, FileNotFoundException {
+        return reportService.generateAllAccountWithTransactions();
+    }
+
 }

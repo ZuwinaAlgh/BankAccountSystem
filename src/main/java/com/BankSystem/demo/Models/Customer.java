@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 public class Customer extends BaseEntity{
-    @Column(name="Customer_name")
-    String CustomerName;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer CustomerId;
+    @Column(name="Customer_name")
+    String CustomerName;
     String CustomerPhoneNumber;
     Integer age;
     String Email;
