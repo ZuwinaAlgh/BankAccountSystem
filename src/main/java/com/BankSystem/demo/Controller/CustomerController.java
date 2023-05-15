@@ -17,4 +17,10 @@ public class CustomerController {
     public void createCustomer(@RequestParam String CustomerName){
         customerService.CreateCustomer(CustomerName);
     }
+
+
+    @RequestMapping(value="createNewCustomer", method = RequestMethod.POST)                         //create new customer
+    public void createNewCustomer(){
+        customerService.CreateNewCustomer();
+    }
 }
